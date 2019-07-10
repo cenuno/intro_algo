@@ -6,8 +6,8 @@ from typing import List
 from timeit import default_timer as timer
 
 
-def insertion_sort(x: List[int]) -> List[int]:
-    """Sort a small number of integers in ascending order.
+def insertion_sort(x: List[int], ascending: bool = True) -> List[int]:
+    """Sort a small number of integers in ascending/descending order.
 
     Insertion sort works the way many people sort a hand of playing cards:
     \t * Start with an empty left hand and the cards face down on the table
@@ -21,9 +21,18 @@ def insertion_sort(x: List[int]) -> List[int]:
     start = timer()
     for ind, val in enumerate(x):
         i = ind - 1
-        while i > -1 and x[i] > val:
+        if ascending:
+            comparison = x[i] > val
+        else:
+            comparison = x[i] < val
+        while i > -1 and comparison:
             x[i + 1] = x[i]
             i = i - 1
+            # TODO: figure out way to avoid duplicate if-else statements
+            if ascending:
+                comparison = x[i] > val
+            else:
+                comparison = x[i] < val
         x[i + 1] = val
     print(timer() - start)
     return x
