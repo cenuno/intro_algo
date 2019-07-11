@@ -18,6 +18,13 @@ def test_insertion_sort():
                                                    90, 456, 567,
                                                    987, 7890, 12345]
 
+    assert insertion_sort(x=x) == [1, 4, 9,
+                                   10, 11, 12,
+                                   13, 23, 34,
+                                   56, 75, 89,
+                                   90, 456, 567,
+                                   987, 7890, 12345]
+
     assert insertion_sort(x=x, ascending=False) == [12345, 7890, 987,
                                                     567, 456, 90,
                                                     89, 75, 56,
