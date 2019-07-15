@@ -31,7 +31,4 @@ def test_insertion_sort():
                                                     34, 23, 13,
                                                     12, 11, 10,
                                                     9, 4, 1]
-
     # TODO: add test with floats
-
-
